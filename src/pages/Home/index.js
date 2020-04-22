@@ -26,6 +26,8 @@ import {
 
 export default function Home() {
   const [restaurants, setRestaurants] = useState([]);
+  // const [search, setSearch] = useState('');
+
   // const [date, setDate] = useState(new Date());
 
   const dispatch = useDispatch();
@@ -55,6 +57,16 @@ export default function Home() {
     history.push(`/restaurants/${restaur.id}/menu`);
   }
 
+  function handleSearch(e) {
+    const teste = restaurants.map((option) => option.name);
+
+    if (e === teste) {
+      alert('encontrou');
+    }
+
+    console.tron.log('teste', teste);
+  }
+
   return (
     <Container>
       <NavContainer />
@@ -65,7 +77,7 @@ export default function Home() {
           <input
             type="text"
             placeholder="Buscar Estabelecimento"
-            onChange={() => {}}
+            onChange={(e) => handleSearch(e.target.value)}
           />
           <div>
             <MdSearch size={30} color="#009ca3" />
